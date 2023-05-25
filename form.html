@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <style>
+        body{
+            background-color: skyblue;
+        }
+        .container{
+            background-color: white;
+            text-align: center;
+            height: 400px;
+            width: 23%;
+            margin: 100px auto;
+            border: 2px solid gray;
+        }
+        input{
+            width: 300px;
+            height: 40px;
+            margin: 12px;
+            font-size: 15px;
+        }
+        #subm{
+            background-color: green;
+            color: white;
+            font-weight: bolder;
+        }
+        .error{
+            color: red;
+            margin: 0;
+            text-align: left;
+            padding: 0px 0px 0px 70px ;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>login form</h1>
+        <form onsubmit="return validateform()">
+            <input id="enter" type="text"placeholder = "enter username"><br>
+             <p class="error" id="nameerror"></p>             
+            <input id="password" type="password"placeholder = "enter your password"><br>
+             <p class="error" id="passworderror"></p>
+            <input id="subm" type="submit">
+        </form>
+    </div>
+    <script>
+        let un = document.getElementById("enter");
+        let pw = document.getElementById("password");
+        let all = 1;
+
+        function validateform(){
+            if(un.value == ""){
+                document.getElementById("nameerror").innerHTML = "please, enter your username";
+                all = 0;
+            }
+            else if(un.value.length < 6){
+                document.getElementById("nameerror").innerHTML = "username must be in 6 characters";                
+                all = 0;
+            }
+            else{
+                document.getElementById("nameerror").innerHTML = "";
+                all = 1; 
+            }
+            if(pw.value == ""){
+                document.getElementById("passworderror").innerHTML = "please, enter your username"
+                all = 0;
+            }
+            else if(pw.value.length < 8){
+                document.getElementById("passworderror").innerHTML = "password must be in 8 characters";                
+                all = 0;
+            }
+            else{
+                document.getElementById("passworderror").innerHTML = "";
+                all = 1;    
+            }
+
+            if (all){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

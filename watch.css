@@ -1,0 +1,37 @@
+body{
+    background-color: rgba(159, 152, 167, 0.712);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.digit{
+    font-size: 10rem;
+    font-weight: bold;
+}
+.txt{
+    font-size: 4rem;
+    font-weight: bold;
+}
+#btn{
+    text-align: center;
+}
+.btns{
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 10px;
+    padding: 5px 30px;
+}
+#start{
+    background-color: green;
+    color: white;
+}
+#stop{
+    background-color: red;
+    color: black;
+}
+#reset{
+    background-color: lightblue;
+    color: black;
+}

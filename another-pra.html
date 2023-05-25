@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temprature converter</title>
+    <style>
+        body{
+            padding: 50px 400px;
+        
+        }
+        h1{
+            font-size: 50px;
+            text-align: center;
+        }
+        .container{
+            text-align: center;
+            background-color: aquamarine;
+            padding: 50px;
+        }
+        .input{
+            display: inline-block;
+        }
+        .ent{
+            padding: 7px 13px;
+            font-size: 25px;
+            margin: 10px;
+            text-align: center;
+            font-weight: bold;
+
+        }
+        label{
+            font-size: 25px;
+            font-weight: bolder;
+            color: darkslateblue;
+        }
+        #mass{
+            background-color: gray;
+        }
+        #distance{
+            background-color: lightgreen;
+        }
+        #money{
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>temprature converter</h1>
+    <div class="container">
+        <div class="input">
+            <label>celcius</label><br>
+            <input type="number" value="0" id="cel" class="ent">
+        </div>
+        <div class="input">
+            <label>farhenite</label><br>
+            <input type="number" value="32" id="far" class="ent">
+        </div>
+    </div>
+    <h1>mass converter</h1>
+    <div class="container" id="mass">
+        <div class="input">
+            <label>kilogram</label><br>
+            <input type="number" value="1" id="kg" class="ent">
+        </div>
+        <div class="input">
+            <label>pound</label><br>
+            <input type="number" value="2.205" id="pnd" class="ent">
+        </div>
+    </div>
+    <h1>distance converter</h1>
+    <div class="container" id="distance">
+        <div class="input">
+            <label>kilometer</label><br>
+            <input type="number" value="1" id="km" class="ent">
+        </div>
+        <div class="input">
+            <label>meter</label><br>
+            <input type="number" value="1000" id="mtr" class="ent">
+        </div>
+    </div>
+    <h1>currency converter</h1>
+    <div class="container" id="money">
+        <div class="input">
+            <label>usd $</label><br>
+            <input type="number" value="1" id="usd" class="ent">
+        </div>
+        <div class="input">
+            <label>nepal-rupee</label><br>
+            <input type="number" value="116.86" id="nr" class="ent">
+        </div>
+    </div>
+    <script>
+        let cel = document.getElementById("cel");
+        let far = document.getElementById("far");
+
+        cel.addEventListener('input', function(){
+            let c = this.value;
+            let f = (c * 9/5) + 32;
+            if(!Number.isInteger(f)){
+                f = f.toFixed(4);
+            }
+            far.value = f;
+        });
+        far.addEventListener('input', function(){
+            let f = this.value;
+            let c = (f - 32) * 5/9;
+            if(!Number.isInteger(c)){
+                c = c.toFixed(4);
+            }            
+            cel.value = c;
+        });
+    
+    
+        let kg = document.getElementById("kg");
+        let pnd = document.getElementById("pnd");
+
+        kg.addEventListener('input', function(){
+            let k = this.value;
+            let p = k * 2.205;
+            if(!Number.isInteger(p)){
+                p = p.toFixed(4);
+            }
+            pnd.value = p;
+        })
+        pnd.addEventListener('input', function(){
+            let p = this.value;
+            let k = p / 2.205;
+            if(!Number.isInteger(k)){
+                k = k.toFixed(4);
+            }
+            kg.value = k;
+        })
+    
+        let km = document.getElementById("km");
+        let mtr = document.getElementById("mtr");
+
+        km.addEventListener('input', function(){
+            let l = this.value;
+            let m = l * 1000;
+            mtr.value = m;           
+        })
+        mtr.addEventListener('input', function(){
+            let m = this.value;
+            let l = m / 1000;
+            km.value = l;
+        })
+        
+        let am = document.getElementById("usd");
+        let np = document.getElementById("nr");
+
+        am.addEventListener('input', function(){
+            let a = this.value;
+            let n = a * 116.86;
+            np.value = n;
+        })
+        np.addEventListener('input', function(){
+            let n = this.value;
+            let a = n / 116.86;
+            am.value = a;
+        })
+    
+    </script>
+</body>
+</html>
